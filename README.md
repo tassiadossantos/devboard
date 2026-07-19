@@ -1,142 +1,156 @@
-# DevBoard
+<p align="center">
+  <img src="public/favicon.svg" width="100" alt="DevBoard Logo"/>
+</p>
 
-**Developer Productivity Dashboard** — Track your GitHub commits, streaks, languages, and productivity metrics in one beautiful dashboard.
+<h1 align="center">DevBoard</h1>
 
-## Why DevBoard
+<p align="center">
+  <strong>Developer Productivity Dashboard</strong><br/>
+  Track your GitHub commits, streaks, languages & metrics in one beautiful interface.
+</p>
 
-GitHub shows commits. WakaTime shows time. Neither shows everything together. DevBoard unifies your developer productivity data in a single, beautiful dashboard.
+<p align="center">
+  <a href="https://github.com/tassiadossantos/devboard">
+    <img src="https://img.shields.io/github/stars/tassiadossantos/devboard?style=social" alt="Stars"/>
+  </a>
+  <a href="https://github.com/tassiadossantos/devboard/fork">
+    <img src="https://img.shields.io/github/forks/tassiadossantos/devboard?style=social" alt="Forks"/>
+  </a>
+  <a href="https://github.com/tassiadossantos/devboard/issues">
+    <img src="https://img.shields.io/github/issues/tassiadossantos/devboard" alt="Issues"/>
+  </a>
+  <a href="https://github.com/tassiadossantos/devboard/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/tassiadossantos/devboard" alt="License"/>
+  </a>
+</p>
+
+---
+
+## Why DevBoard?
+
+GitHub shows commits. WakaTime shows time. Neither shows everything together.
+
+DevBoard unifies your developer productivity data in a single, beautiful dashboard — so you can focus on shipping code, not juggling tabs.
 
 ## Features
 
-- **Commit Activity Graph** — Visualize your commit history over the past 12 weeks
-- **Streak Tracker** — Track your current and longest commit streaks
-- **Language Distribution** — See which languages you use most across your repos
-- **Contribution Grid** — GitHub-style contribution calendar for the last year
-- **Activity Feed** — Recent commits, PRs, issues, and reviews
-- **Goals Tracker** — Set and track custom productivity goals
-- **Dark/Light Theme** — Toggle between themes
-- **Detailed Stats** — Top repos, member since, followers, stars breakdown
+| Feature | Description |
+|---------|-------------|
+| **Commit Activity Graph** | Visualize your commit history over the past 12 weeks |
+| **Streak Tracker** | Monitor current and longest commit streaks |
+| **Language Distribution** | Pie chart of languages across your repositories |
+| **Contribution Grid** | GitHub-style contribution calendar for the last year |
+| **Activity Feed** | Recent commits, PRs, issues, and code reviews |
+| **Goals Tracker** | Set and track custom productivity goals |
+| **Dark/Light Theme** | Toggle between themes |
+| **Detailed Stats** | Top repos, member since, followers, and stars breakdown |
 
 ## Tech Stack
 
-| Technology | Purpose |
-|-----------|---------|
-| React + TypeScript | UI framework |
-| Vite | Build tool |
-| Recharts | Data visualization |
-| Zustand | State management |
-| Tailwind CSS | Styling |
-| date-fns | Date utilities |
-| lucide-react | Icons |
-| GitHub API | Real data |
+<p align="center">
+  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React"/>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/>
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite"/>
+  <img src="https://img.shields.io/badge/Recharts-FF6384?style=for-the-badge" alt="Recharts"/>
+  <img src="https://img.shields.io/badge/Zustand-443E38?style=for-the-badge" alt="Zustand"/>
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind"/>
+  <img src="https://img.shields.io/badge/date--fn-062312?style=for-the-badge" alt="date-fns"/>
+</p>
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+
-- A GitHub Personal Access Token (repo + read:user scopes)
+- **Node.js** 18+ 
+- **GitHub Personal Access Token** ([generate here](https://github.com/settings/tokens/new?scopes=repo,read:user))
 
-### Install
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/tassiadossantos/devboard.git
+
+# Navigate to the project
+cd devboard
+
+# Install dependencies
 npm install
-```
 
-### Run
-
-```bash
+# Start development server
 npm run dev
 ```
 
-### Build
+### Build for Production
 
 ```bash
 npm run build
 ```
 
-## How to Get a GitHub Token
-
-1. Go to GitHub Settings → Developer settings → Personal access tokens
-2. Click "Generate new token (classic)"
-3. Select `repo` and `read:user` scopes
-4. Copy the generated token
-
-## Project Structure
+## Architecture
 
 ```
 src/
-├── components/
-│   ├── ActivityFeed/      # Recent activity list
-│   ├── CommitGraph/       # Bar chart of commits
-│   ├── ContributionGrid/  # GitHub-style grid
-│   ├── GoalsTracker/      # Custom goals
-│   ├── LanguagePie/       # Language distribution pie chart
-│   ├── Layout/            # App shell + navigation
-│   ├── MetricsCard/       # Summary metric cards
-│   ├── StreakCounter/     # Streak display
-│   └── ThemeSwitcher/     # Dark/light toggle
-├── hooks/
-│   ├── useGitHub.ts       # GitHub auth + data hook
-│   ├── useMetrics.ts      # Computed metrics
-│   └── useStreak.ts       # Streak calculation
-├── lib/
-│   ├── github.ts          # GitHub API client
-│   └── storage.ts         # LocalStorage persistence
-├── pages/
-│   ├── Dashboard.tsx      # Main dashboard
-│   ├── Login.tsx          # Token input page
-│   ├── Settings.tsx       # App settings
-│   └── Stats.tsx          # Detailed statistics
-├── store/
-│   └── index.ts           # Zustand store
-└── types/
-    └── index.ts           # TypeScript types
-```
-
-## User Flow
-
-1. **Login** — User enters GitHub Personal Access Token on `/`
-2. **Dashboard** — Redirects to `/dashboard`, loads data from GitHub API (commits, repos, activity)
-3. **Explore** — Navigate between Dashboard (overview), Stats (detailed), Settings (preferences)
-4. **Track** — Set custom goals, monitor streaks, visualize contribution patterns
-5. **Persist** — All settings and goals saved to LocalStorage, no backend needed
-
-```
-/ (Login) → /dashboard → /stats
-                   ↓         ↓
-              /settings   /settings
+├── components/          # Reusable UI components
+│   ├── ActivityFeed/    # Recent activity list
+│   ├── CommitGraph/     # Bar chart of commits
+│   ├── ContributionGrid/# GitHub-style grid
+│   ├── GoalsTracker/    # Custom goals
+│   ├── LanguagePie/     # Language distribution
+│   ├── Layout/          # App shell + navigation
+│   ├── Logo/            # Brand logo
+│   ├── MetricsCard/     # Summary metric cards
+│   ├── StreakCounter/   # Streak display
+│   └── ThemeSwitcher/   # Dark/light toggle
+├── hooks/               # Custom React hooks
+├── lib/                 # API clients & utilities
+├── pages/               # Route components
+├── store/               # Zustand state management
+└── types/               # TypeScript definitions
 ```
 
 ## Monetization Plan
 
-### Tier Free
-- Dashboard with basic metrics
-- 30 days of history
-- Dark/light theme
-- 3 custom goals
+| Tier | Price | Features |
+|------|-------|----------|
+| **Free** | $0 | Dashboard, 30-day history, dark/light theme, 3 goals |
+| **Pro** | $4/mo | Unlimited history, advanced metrics, data export, custom widgets, API access |
 
-### Tier Pro ($4/month)
-- Unlimited history
-- Advanced metrics & insights
-- Data export (CSV/JSON)
-- Customizable widgets
-- API access for integrations
-- Priority support
+## Skills Demonstrated
 
-## Why Recruiters Will Notice
+| Skill | Implementation |
+|-------|----------------|
+| API Integration | GitHub REST API |
+| Data Visualization | Recharts |
+| Authentication | Token-based auth flow |
+| State Management | Zustand |
+| Type Safety | Full TypeScript |
+| Styling | Tailwind CSS |
+| Persistence | LocalStorage |
 
-| Skill Demonstrated | How |
-|-------------------|-----|
-| API Integration | GitHub API real data |
-| Data Visualization | Recharts graphs |
-| OAuth / Auth Flow | Token-based auth |
-| Local Storage | Client-side persistence |
-| Component Architecture | Modular React components |
-| State Management | Zustand store |
-| TypeScript | Full type safety |
-| Responsive Design | Mobile-first Tailwind |
+## Contributing
+
+Contributions are welcome. Please open an issue first to discuss what you'd like to change.
+
+```bash
+# Fork the repository
+# Create your feature branch
+git checkout -b feature/amazing-feature
+
+# Commit your changes
+git commit -m "feat: add amazing feature"
+
+# Push to the branch
+git push origin feature/amazing-feature
+
+# Open a Pull Request
+```
 
 ## License
 
-MIT
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+---
+
+<p align="center">
+  Made with passion by <a href="https://github.com/tassiadossantos">Tassio Santos</a>
+</p>
